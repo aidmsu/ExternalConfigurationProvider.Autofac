@@ -1,11 +1,10 @@
 ﻿using System;
 using Autofac;
-using ExternalConfiguration;
 
-namespace ExternalConfigurationProvider.Autofac
+namespace ExternalConfiguration.Autofac
 {
     /// <exclude /> 
-    public static class ContainerBuilderExtenstions
+    public static class ContainerBuilderExtensions
     {
         /// <summary>
         /// Configure Consul configuration provider services.

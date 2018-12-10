@@ -17,6 +17,10 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
 
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+
+    <AssemblyName>ExternalConfiguration.Autofac</AssemblyName>
+
+    <RootNamespace>ExternalConfiguration.Autofac</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
