@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard1.5;net45</TargetFrameworks>
+    <LangVersion>7.1</LangVersion>
+    <DebugType>full</DebugType>
+
+    <PackageId>ExternalConfigurationProvider.Autofac</PackageId>
+    <Authors>Andrey Dorokhov</Authors>
+    <Owners>aidmsu</Owners>
+    <PackageProjectUrl>https://github.com/aidmsu/ExternalConfigurationProvider.Autofac</PackageProjectUrl>
+    <PackageLicenseUrl>https://raw.github.com/aidmsu/ExternalConfigurationProvider.Autofac/master/LICENSE</PackageLicenseUrl>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageReleaseNotes>https://github.com/aidmsu/ExternalConfigurationProvider.Autofac/releases</PackageReleaseNotes>
+    <Copyright>Copyright © 2018 Andrey Dorokhov.</Copyright>
+    <PackageTags>External Config Configuration Consul Autofac</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.0.0" />
+    <PackageReference Include="ExternalConfigurationProvider" Version="0.2.0" />
+  </ItemGroup>
+
+</Project>
