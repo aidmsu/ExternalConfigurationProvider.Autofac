@@ -40,15 +40,15 @@ Task("Build")
     var buildSettings =  new DotNetCoreBuildSettings { Configuration = configuration };
     if(!string.IsNullOrEmpty(version)) buildSettings.ArgumentCustomization = args => args.Append("/p:Version=" + version);
 
-    DotNetCoreBuild("src/ExternalConfiguration.Autofac/ExternalConfiguration.Autofac.csproj", buildSettings);
+    DotNetCoreBuild("src/ExternalConfigurationProvider.Autofac/ExternalConfigurationProvider.Autofac.csproj", buildSettings);
 });
 
 Task("Pack").IsDependentOn("Build").Does(()=> 
 {
     CreateDirectory("build");
     
-    CopyFiles(GetFiles("./src/ExternalConfiguration.Autofac/bin/**/*.nupkg"), "build");
-    Zip("./src/ExternalConfiguration.Autofac/bin/" + configuration, "build/ExternalConfigurationPovider.Autofac-" + version +".zip");
+    CopyFiles(GetFiles("./src/ExternalConfigurationProvider.Autofac/bin/**/*.nupkg"), "build");
+    Zip("./src/ExternalConfigurationProvider.Autofac/bin/" + configuration, "build/ExternalConfigurationPovider.Autofac-" + version +".zip");
 });
 
 RunTarget(target);
