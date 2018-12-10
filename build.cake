@@ -1,8 +1,3 @@
-#tool "nuget:?package=xunit.runner.console"
-#tool "nuget:?package=OpenCover"
-#tool nuget:?package=Codecov
-#addin nuget:?package=Cake.Codecov
-
 var configuration = Argument("configuration", "Release");
 var version = Argument<string>("buildVersion", null);
 var target = Argument("target", "Default");
