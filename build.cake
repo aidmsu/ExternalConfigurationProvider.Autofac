@@ -64,7 +64,7 @@ Task("TestCoverage").IsDependentOn("Test").Does(() =>
         tool => { tool.XUnit2("tests/ExternalConfigurationProvider.Autofac.Tests/bin/" + configuration + "/**/ExternalConfigurationProvider.Autofac.Tests.dll", new XUnit2Settings { ShadowCopy = false }); },
         new FilePath("coverage.xml"),
         new OpenCoverSettings()
-            .WithFilter("+[ExternalConfigurationProvider.Autofac]*")
+            .WithFilter("+[ExternalConfiguration.Autofac]*")
             .WithFilter("-[ExternalConfigurationProvider.Autofac.Tests]*"));
 });
 
