@@ -1,4 +1,4 @@
-# AppVeyor CI build file, https://ci.appveyor.com/project/aidmsu/externalconfigurationprovider
+# AppVeyor CI build file, https://ci.appveyor.com/project/aidmsu/ExternalConfigurationProvider-Autofac
 
 os: Visual Studio 2017
 
