@@ -63,7 +63,7 @@ Task("TestCoverage").IsDependentOn("Test").Does(() =>
             .WithFilter("-[ExternalConfigurationProvider.Autofac.Tests]*"));
 });
 
-Task("Pack").IsDependentOn(TestCoverage").Does(()=> 
+Task("Pack").IsDependentOn("TestCoverage").Does(()=> 
 {
     CreateDirectory("build");
     
