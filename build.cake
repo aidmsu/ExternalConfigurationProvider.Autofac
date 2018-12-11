@@ -43,7 +43,27 @@ Task("Build")
     DotNetCoreBuild("src/ExternalConfigurationProvider.Autofac/ExternalConfigurationProvider.Autofac.csproj", buildSettings);
 });
 
-Task("Pack").IsDependentOn("Build").Does(()=> 
+
+Task("Test").IsDependentOn("Build").Does(() =>
+{
+    DotNetCoreTest("./tests/ExternalConfigurationProvider.Autofac.Tests/ExternalConfigurationProvider.Autofac.Tests.csproj", new DotNetCoreTestSettings
+    {
+        Configuration = configuration,
+        ArgumentCustomization = args => args.Append("/p:BuildProjectReferences=false")
+    });
+});
+
+Task("TestCoverage").IsDependentOn("Test").Does(() => 
+{
+    OpenCover(
+        tool => { tool.XUnit2("tests/ExternalConfigurationProvider.Autofac.Tests/bin/" + configuration + "/**/ExternalConfigurationProvider.Autofac.Tests.dll", new XUnit2Settings { ShadowCopy = false }); },
+        new FilePath("coverage.xml"),
+        new OpenCoverSettings()
+            .WithFilter("+[ExternalConfigurationProvider.Autofac]*")
+            .WithFilter("-[ExternalConfigurationProvider.Autofac.Tests]*"));
+});
+
+Task("Pack").IsDependentOn("BuTestCoverageild").Does(()=> 
 {
     CreateDirectory("build");
     
