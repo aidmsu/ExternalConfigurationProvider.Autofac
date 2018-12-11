@@ -68,7 +68,15 @@ Task("TestCoverage").IsDependentOn("Test").Does(() =>
             .WithFilter("-[ExternalConfigurationProvider.Autofac.Tests]*"));
 });
 
-Task("Pack").IsDependentOn("TestCoverage").Does(()=> 
+Task("Upload-Coverage")
+    .WithCriteria(AppVeyor.IsRunningOnAppVeyor)
+    .IsDependentOn("TestCoverage")
+    .Does(() =>
+{
+    Codecov("coverage.xml");
+});
+
+Task("Pack").IsDependentOn("Upload-Coverage").Does(()=> 
 {
     CreateDirectory("build");
     
